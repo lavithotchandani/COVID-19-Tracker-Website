@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>COVID Tracking Website</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div>
+			<h1 class="display-1">COVID-19 Tracker Website</h1>
+			<hr class="text-danger border-2 opacity-50">
+		</div>
+		<p>The following data consists of the overall cases across the world which means confirmed cases, casualties
+			confirmeed and recovered cases</p>
+		<table class="table table-striped">
+			<tr>
+				<th>Country</th>
+				<th>State</th>
+				<th>Total Cases</th>
+			</tr>
+			<tr th:each="storedData : ${DataStoringClass}">
+				<td th:text="${storedData.country}"></td>
+				<td th:text="${storedData.state}"></td>
+				<td th:text="${storedData.MostRecentTotalCases}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
